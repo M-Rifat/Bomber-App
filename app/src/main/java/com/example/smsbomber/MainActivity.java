@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import com.example.smsbomber.Bombing;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,11 +38,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
             if (v.getId()==R.id.b1)
             {
-
-//                Bombing bombing=new Bombing();
-//                bombing.Bmb();
-//                int rpcode = bombing.status;
-//                tview.setText(String.valueOf(rpcode));
+//  importing another class
+                Bombing bombing=new Bombing();
+                bombing.Bmb();
+                int rpcode = bombing.status;
+                tview.setText(String.valueOf(rpcode));
 
             }
         }catch (Exception e) {
