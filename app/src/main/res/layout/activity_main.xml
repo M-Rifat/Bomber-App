@@ -78,9 +78,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="52dp"
         android:layout_alignParentTop="true"
-
         android:background="@drawable/rectangle_1"
-
         />
     <TextView
         android:id="@+id/click"
