@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.1425" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/rectangle_1.xml" value="0.1425" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/rectangle_3.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/activity_main.xml" value="0.18297101449275363" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/SMSBomber/app/src/main/res/layout/activity_main.xml" value="0.18342391304347827" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/SMSBomber/app/src/main/res/layout/content_main.xml" value="0.18342391304347827" />

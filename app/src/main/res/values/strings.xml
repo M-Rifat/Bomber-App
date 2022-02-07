@@ -9,4 +9,78 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <style name="sexybomber">
+
+        <item name="android:textSize">
+            28sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+    <string name="sexybomber">
+
+SEXYBOMBER
+</string>
+    <style name="developers_">
+
+        <item name="android:textSize">
+            14sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            #DE1E1E
+        </item>
+
+    </style>
+    <string name="developers_">
+
+**Developers will not Take\nResponsibility of Any Misuse**
+</string>
+    <style name="mobile_numb">
+
+        <item name="android:textSize">
+            14.92sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            #FDF8F8
+        </item>
+
+    </style>
+    <string name="mobile_numb">
+
+MOBILE NUMBER
+</string>
+    <style name="amount">
+
+        <item name="android:textSize">
+            14.92sp
+        </item>
+
+        <item name="android:letterSpacing">
+            0.02
+        </item>
+
+        <item name="android:textColor">
+            #FDF8F8
+        </item>
+
+    </style>
+    <string name="amount">
+
+AMOUNT
+</string>
+
 </resources>

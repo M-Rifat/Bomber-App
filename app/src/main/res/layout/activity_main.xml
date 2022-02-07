@@ -5,59 +5,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/black"
+    android:background="#462F4A"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/sexybomber"
+        android:layout_width="220dp"
+        android:layout_height="34dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:text="@string/sexybomber"
+        android:textAppearance="@style/sexybomber"
+        android:gravity="top"
+        />
+    <TextView
+        android:id="@+id/developers_"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="52dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="37dp"
+        android:text="@string/developers_"
+        android:textAppearance="@style/developers_"
+        android:lineSpacingExtra="7sp"
+        android:translationY="-3.6sp"
+        android:gravity="center_horizontal|top"
+        />
 
+        <TextView
+            android:id="@+id/mobile_numb"
+            android:layout_width="149.15dp"
+            android:layout_height="25.57dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="69dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="21dp"
+            android:text="@string/mobile_numb"
+            android:textAppearance="@style/mobile_numb"
+            android:lineSpacingExtra="8sp"
+            android:translationY="-3.84sp"
+            android:gravity="center_horizontal|top"
+            />
 
     <EditText
+        android:id="@+id/t1"
+        android:layout_width="256dp"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="52dp"
+        android:layout_alignParentTop="true"
 
-        android:layout_marginLeft="120dp"
-        android:id="@+id/n1"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:textSize="20sp"
-        android:inputType="numberDecimal"
-        android:hint="Enter Number1"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:layout_marginBottom="50dp"
-
+        android:background="@drawable/rectangle_1"
         />
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="75.64dp"
+        android:layout_height="25.57dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="69dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="21dp"
+        android:text="@string/amount"
+        android:textAppearance="@style/amount"
+        android:lineSpacingExtra="8sp"
+        android:translationY="-3.84sp"
+        android:gravity="center_horizontal"
+        />
+
     <EditText
-        android:layout_marginLeft="120dp"
-        android:id="@+id/n2"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:textSize="20sp"
-        android:hint="Enter Number2"
-        android:inputType="numberDecimal"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
-        android:layout_marginBottom="15dp"
+        android:id="@+id/t2"
+        android:layout_width="256dp"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="52dp"
+        android:layout_alignParentTop="true"
+
+        android:background="@drawable/rectangle_1"
         />
-    <Button
+    <TextView
         android:id="@+id/b1"
-        android:layout_marginLeft="120dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="183dp"
+        android:layout_height="38dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="89dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="76dp"
         android:text="Attack"
-        android:textSize="30dp"
-        android:backgroundTint="#E8DFDF"
-        android:textColor="#1338A6"
-        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+        android:background="@drawable/rectangle_3"
         />
     <TextView
         android:id="@+id/tv"
-        android:layout_marginLeft="120dp"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:text="testing"
-        android:textColor="@android:color/background_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:text="Loading..."
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:textColor="@android:color/white"
         />
+
+
+
 
 
 </LinearLayout>
