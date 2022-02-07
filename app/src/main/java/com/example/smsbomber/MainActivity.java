@@ -20,9 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private EditText text1,text2;
-    private TextView bt1;
-    private TextView tview;
+    private EditText editTex1,editText2;
+    private TextView textView1,textView2;
 
 
 
@@ -33,11 +32,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         setContentView(R.layout.activity_main);
 
 
-        text1=findViewById(R.id.t1);
-        text2=findViewById(R.id.t2);
-        bt1=findViewById(R.id.b1);
-        tview=findViewById(R.id.tv);
-        bt1.setOnClickListener(this);
+        editTex1=findViewById(R.id.text1);
+        editText2=findViewById(R.id.text2);
+        textView1=findViewById(R.id.click);
+        textView2=findViewById(R.id.tView);
+        textView1.setOnClickListener(this);
 
         if(isNetworkAvailable()){
             Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
@@ -50,9 +49,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         try {
 
-            if (v.getId()==R.id.b1)
+            if (v.getId()==R.id.click)
             {
-                String mobile = text1.getText().toString();
+                String mobile = editTex1.getText().toString();
                 String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO="+mobile+"&countryPhoneCode=%2B88");
                 String exc = new String();
                 RequestQueue queue = Volley.newRequestQueue(this);
@@ -78,11 +77,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 //                Bombing bombing=new Bombing();
 //                bombing.httpCall();
 //                int rpcode = bombing.status;
-                tview.setText(exc);
+                textView2.setText(exc);
 
             }
         }catch (Exception e) {
-            tview.setText("Unsuccessfull");
+            textView2.setText("Unsuccessfull");
         }
 
 

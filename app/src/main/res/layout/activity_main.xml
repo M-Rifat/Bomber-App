@@ -9,7 +9,6 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/sexybomber"
         android:layout_width="220dp"
         android:layout_height="34dp"
         android:layout_alignParentLeft="true"
@@ -21,7 +20,6 @@
         android:gravity="top"
         />
     <TextView
-        android:id="@+id/developers_"
         android:layout_width="256dp"
         android:layout_height="48dp"
         android:layout_alignParentLeft="true"
@@ -36,7 +34,6 @@
         />
 
         <TextView
-            android:id="@+id/mobile_numb"
             android:layout_width="149.15dp"
             android:layout_height="25.57dp"
             android:layout_alignParentLeft="true"
@@ -51,7 +48,7 @@
             />
 
     <EditText
-        android:id="@+id/t1"
+        android:id="@+id/text1"
         android:layout_width="256dp"
         android:layout_height="37dp"
         android:layout_alignParentLeft="true"
@@ -61,7 +58,6 @@
         android:background="@drawable/rectangle_1"
         />
     <TextView
-        android:id="@+id/amount"
         android:layout_width="75.64dp"
         android:layout_height="25.57dp"
         android:layout_alignParentLeft="true"
@@ -76,7 +72,7 @@
         />
 
     <EditText
-        android:id="@+id/t2"
+        android:id="@+id/text2"
         android:layout_width="256dp"
         android:layout_height="37dp"
         android:layout_alignParentLeft="true"
@@ -86,7 +82,7 @@
         android:background="@drawable/rectangle_1"
         />
     <TextView
-        android:id="@+id/b1"
+        android:id="@+id/click"
         android:layout_width="183dp"
         android:layout_height="38dp"
         android:layout_alignParentLeft="true"
@@ -100,12 +96,11 @@
         android:background="@drawable/rectangle_3"
         />
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"
-        android:text="Loading..."
         android:textStyle="italic"
         android:textSize="20dp"
         android:textColor="@android:color/white"
