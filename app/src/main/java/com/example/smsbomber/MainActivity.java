@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         bt1.setOnClickListener(this);
 
         if(isNetworkAvailable()){
-            tview.setText("Connection Ok");
+            Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
         }
 
     }
@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
             if (v.getId()==R.id.b1)
             {
-                String url = "https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO=01912986866&countryPhoneCode=%2B88";
+                String mobile = text1.getText().toString();
+                String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO="+mobile+"&countryPhoneCode=%2B88");
                 String exc = new String();
                 RequestQueue queue = Volley.newRequestQueue(this);
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
