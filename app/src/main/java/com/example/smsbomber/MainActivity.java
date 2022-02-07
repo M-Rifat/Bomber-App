@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 int amount = Integer.parseInt(editText2.getText().toString());
                 for(int i=0;i<amount;i++){
                     swapnoApi(mobile);
+                    blshopApi(mobile);
                 }
                 Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
                 //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
@@ -85,6 +86,42 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         });
         queue.add(stringRequest);
     }
+
+    private void blshopApi(String mobile){
+        String url = String.valueOf("https://eshop.banglalink.net/wp-admin/admin-ajax.php");
+        boolean flag = false;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // enjoy your response
+                        //Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // enjoy your error status
+            }
+        }){
+            @Override
+            public String getBodyContentType() {
+                return "application/x-www-form-urlencoded; charset=UTF-8";
+            }
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("action", "otpRegistration");
+                params.put("otpMobile", mobile);
+                return params;
+            }
+
+        };
+        queue.add(stringRequest);
+    }
+
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
