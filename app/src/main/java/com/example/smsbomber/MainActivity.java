@@ -23,9 +23,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private EditText editTex1,editText2;
     private TextView textView1,textView2;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,43 +45,38 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     public void onClick(View v) {
 
         try {
-
             if (v.getId()==R.id.click)
             {
                 String mobile = editTex1.getText().toString();
-                String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO="+mobile+"&countryPhoneCode=%2B88");
-                String exc = new String();
-                RequestQueue queue = Volley.newRequestQueue(this);
-                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                // enjoy your response
-                                //exc = "Successfullly";
-                                Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
-
-                            }
-                        }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // enjoy your error status
-                       // exc = "not succefull";
-                    }
-                });
-
-                queue.add(stringRequest);
-                //  importing another class
-//                Bombing bombing=new Bombing();
-//                bombing.httpCall();
-//                int rpcode = bombing.status;
-                textView2.setText(exc);
-
+                int amount = Integer.parseInt(editText2.getText().toString());
+                for(int i=0;i<amount;i++){
+                    swapnoApi(mobile);
+                }
             }
         }catch (Exception e) {
             textView2.setText("Unsuccessfull");
         }
 
+    }
+    private void swapnoApi(String mobile){
+        String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO="+mobile+"&countryPhoneCode=%2B88");
+        boolean flag = false;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // enjoy your response
+                        //Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
 
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // enjoy your error status
+            }
+        });
+        queue.add(stringRequest);
     }
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
