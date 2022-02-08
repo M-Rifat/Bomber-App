@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1425" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/progress_icon.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/rectangle_3.xml" value="0.1425" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/about_us.xml" value="0.21920289855072464" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/activity_main.xml" value="0.26621847886098404" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/menu/menu_2layout.xml" value="0.2630208333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/SMSBomber/app/src/main/res/layout/activity_main.xml" value="0.18342391304347827" />
