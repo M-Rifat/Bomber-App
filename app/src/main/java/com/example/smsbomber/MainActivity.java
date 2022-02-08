@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
-                //attackButton.;
+                attackButton.setEnabled(false);
                 String mobile = numberEditText.getText().toString();
                 int amount = Integer.parseInt(amountEditText.getText().toString());
                 for(int i=0;i<amount;i++){
@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 }
                 Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
                 //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
+                attackButton.setEnabled(true);
             }
         }catch (Exception e) {
             resultTextView.setText("Unsuccessfull");
