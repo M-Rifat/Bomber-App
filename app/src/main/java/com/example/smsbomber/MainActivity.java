@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private Button attackButton;
     private TextView resultTextView;
     private ProgressBar progressBar;
-    int p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
         }
 
-        progressBar=findViewById(R.id.pb);
+        progressBar=findViewById(R.id.progressBar);
 
 
     }
@@ -63,15 +62,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
-
-                Thread thread =new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        dowork();
-
-                    }
-                });
-                thread.start();
+                progressBar.setVisibility(View.VISIBLE);
 
                 attackButton.setEnabled(false);
                 String mobile = numberEditText.getText().toString();
@@ -222,15 +213,4 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public void dowork(){
-        for (p=20;p<=100;p=p+20){
-            try {
-                Thread.sleep(1000);
-                progressBar.setProgress(p);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
 }
