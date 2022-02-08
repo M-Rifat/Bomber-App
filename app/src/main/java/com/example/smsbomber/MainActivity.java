@@ -164,7 +164,6 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 // and value pair to our parameters.
                 params.put("operator", "all");
                 params.put("msisdn", String.valueOf("88"+mobile));
-
                 // at last we are
                 // returning our params.
                 return params;
