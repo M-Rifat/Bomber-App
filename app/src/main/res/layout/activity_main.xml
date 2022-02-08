@@ -6,57 +6,56 @@
     android:layout_height="match_parent"
     android:background="#250505"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
         android:layout_gravity="center_vertical"
+        android:layout_marginLeft="25dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="220dp"
             android:layout_height="34dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="70dp"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="70dp"
             android:layout_marginTop="48dp"
-            android:text="@string/sexybomber"
-            android:textAppearance="@style/sexybomber"
             android:fontFamily="@font/hexaframecf"
             android:gravity="top"
-            />
+            android:text="@string/sexybomber"
+            android:textAppearance="@style/sexybomber" />
+
         <TextView
             android:layout_width="256dp"
             android:layout_height="48dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="52dp"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="52dp"
             android:layout_marginTop="37dp"
+            android:fontFamily="@font/hexaframecf"
+            android:gravity="center_horizontal|top"
+            android:lineSpacingExtra="7sp"
             android:text="@string/developers_"
             android:textAppearance="@style/developers_"
-            android:fontFamily="@font/hexaframecf"
-            android:lineSpacingExtra="7sp"
-            android:translationY="-3.6sp"
-            android:gravity="center_horizontal|top"
-            />
+            android:translationY="-3.6sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginLeft="54dp"
             android:layout_marginTop="40dp"
-            >
+            android:orientation="horizontal">
+
             <ImageButton
                 android:layout_width="8.58dp"
                 android:layout_height="15.02dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
-                android:src="@drawable/number"
-                />
-            <TextView
+                android:src="@drawable/number" />
 
+            <TextView
                 android:layout_width="149.15dp"
                 android:layout_height="25.57dp"
                 android:layout_alignParentLeft="true"
@@ -75,38 +74,37 @@
             android:layout_width="256dp"
             android:layout_height="37dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="52dp"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="52dp"
 
-            android:background="@drawable/rectangle_1"
-            />
+            android:background="@drawable/rectangle_1" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginLeft="54dp"
             android:layout_marginTop="21dp"
-            android:layout_marginLeft="54dp">
+            android:orientation="horizontal">
+
             <ImageButton
                 android:layout_width="8.58dp"
                 android:layout_height="15.02dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
-                android:src="@drawable/amount"
-                />
+                android:src="@drawable/amount" />
 
             <TextView
                 android:layout_width="75.64dp"
                 android:layout_height="25.57dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:fontFamily="@font/hexaframecf"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
                 android:text="@string/amount"
                 android:textAppearance="@style/amount"
-                android:fontFamily="@font/hexaframecf"
-                android:lineSpacingExtra="8sp"
-                android:translationY="-3.84sp"
-                android:gravity="center"
-                />
+                android:translationY="-3.84sp" />
         </LinearLayout>
 
 
@@ -115,40 +113,34 @@
             android:layout_width="256dp"
             android:layout_height="37dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="52dp"
             android:layout_alignParentTop="true"
-            android:background="@drawable/rectangle_1"
-            />
+            android:layout_marginLeft="52dp"
+            android:background="@drawable/rectangle_1" />
+
         <Button
             android:id="@+id/click"
             android:layout_width="183dp"
             android:layout_height="38dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="89dp"
             android:layout_alignParentTop="true"
+            android:layout_marginLeft="89dp"
             android:layout_marginTop="76dp"
-            android:text="ATTACK"
-            android:textStyle="bold"
-            android:fontFamily="@font/hexaframecf"
             android:backgroundTint="#DE1E1E"
-            />
+            android:fontFamily="@font/hexaframecf"
+            android:text="ATTACK"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_gravity="center"
-            android:textStyle="italic"
-            android:textSize="20dp"
+            android:layout_marginTop="30dp"
             android:textColor="@android:color/white"
-            />
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
     </LinearLayout>
-
-
-
-
-
 
 
 </LinearLayout>

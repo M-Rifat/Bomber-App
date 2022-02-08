@@ -21,9 +21,7 @@
         </item>
 
     </style>
-    <string name="sexybomber">
-
-SEXYBOMBER
+    <string name="sexybomber">SEXYBOMBER
 </string>
     <style name="developers_">
 
@@ -59,9 +57,7 @@ SEXYBOMBER
         </item>
 
     </style>
-    <string name="mobile_numb">
-
-MOBILE NUMBER
+    <string name="mobile_numb">MOBILE NUMBER
 </string>
     <style name="amount">
 
@@ -78,9 +74,7 @@ MOBILE NUMBER
         </item>
 
     </style>
-    <string name="amount">
-
-AMOUNT
+    <string name="amount">AMOUNT
 </string>
 
 </resources>
