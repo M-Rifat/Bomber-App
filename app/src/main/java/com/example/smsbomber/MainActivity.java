@@ -19,6 +19,9 @@ import com.android.volley.toolbox.Volley;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -123,39 +126,53 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         queue.add(stringRequest);
     }
 
-    private void bongobdApi(String mobile){
-        String url = String.valueOf("https://api.bongo-solutions.com/auth/api/login/send-otp");
-        boolean flag = false;
-        RequestQueue queue = Volley.newRequestQueue(this);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // enjoy your response
-                        //Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
+    private void bongobdApi(String mobile) {
+        // url to post our data
+        String url = "https://api.bongo-solutions.com/auth/api/login/send-otp";
 
-                    }
-                }, new Response.ErrorListener() {
+        // creating a new variable for our request queue
+        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
+
+        StringRequest request = new StringRequest(Request.Method.POST, url, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // on below line we are displaying a success toast message.
+                //Toast.makeText(MainActivity.this, "Data added to API", Toast.LENGTH_SHORT).show();
+                try {
+                    // on below line we are passing our response
+                    // to json object to extract data from it.
+                    JSONObject respObj = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new com.android.volley.Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // enjoy your error status
+                // method to handle errors.
+                //Toast.makeText(MainActivity.this, "Fail to get response = " + error, Toast.LENGTH_SHORT).show();
             }
-        }){
+        }) {
             @Override
-            public String getBodyContentType() {
-                return "application/json";
-            }
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
+            protected Map<String, String> getParams() {
+                // below line we are creating a map for
+                // storing our values in key and value pair.
                 Map<String, String> params = new HashMap<String, String>();
+
+                // on below line we are passing our key
+                // and value pair to our parameters.
                 params.put("operator", "all");
                 params.put("msisdn", String.valueOf("88"+mobile));
+
+                // at last we are
+                // returning our params.
                 return params;
             }
-
         };
-        queue.add(stringRequest);
+        // below line is to make
+        // a json object request.
+        queue.add(request);
     }
 
     private boolean isNetworkAvailable() {
