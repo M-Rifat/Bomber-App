@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
+                //attackButton.;
                 String mobile = numberEditText.getText().toString();
                 int amount = Integer.parseInt(amountEditText.getText().toString());
                 for(int i=0;i<amount;i++){
