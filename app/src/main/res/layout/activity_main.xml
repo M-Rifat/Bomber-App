@@ -145,7 +145,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:textColor="@color/white"
-
+            android:fontFamily="@font/hexaframecf"
             android:textSize="20dp"
             android:textStyle="italic" />
 
