@@ -4,16 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
     android:background="#250505"
     tools:context=".MainActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="25dp"
-        android:orientation="vertical">
-
+    
         <TextView
             android:layout_width="220dp"
             android:layout_height="34dp"
@@ -53,13 +49,15 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
-                android:src="@drawable/number" />
+                android:src="@drawable/number"
+                android:translationY="-3.84sp" />
 
             <TextView
-                android:layout_width="149.15dp"
-                android:layout_height="25.57dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
+                android:layout_marginLeft="2dp"
                 android:fontFamily="@font/hexaframecf"
                 android:gravity="center"
                 android:lineSpacingExtra="8sp"
@@ -92,11 +90,13 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
-                android:src="@drawable/amount" />
+                android:src="@drawable/amount"
+                android:translationY="-3.84sp" />
 
             <TextView
-                android:layout_width="75.64dp"
-                android:layout_height="25.57dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:fontFamily="@font/hexaframecf"
@@ -142,5 +142,3 @@
 
     </LinearLayout>
 
-
-</LinearLayout>
