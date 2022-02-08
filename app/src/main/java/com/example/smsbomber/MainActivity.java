@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     private EditText numberEditText,amountEditText;
     private Button attackButton;
     private TextView resultTextView;
+    private ProgressBar progressBar;
+    int p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
         }
 
+        progressBar=findViewById(R.id.pb);
+
+
     }
 
     @Override
@@ -57,6 +63,16 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
+
+                Thread thread =new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        dowork();
+
+                    }
+                });
+                thread.start();
+
                 attackButton.setEnabled(false);
                 String mobile = numberEditText.getText().toString();
                 int amount = Integer.parseInt(amountEditText.getText().toString());
@@ -204,5 +220,17 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public void dowork(){
+        for (p=20;p<=100;p=p+20){
+            try {
+                Thread.sleep(1000);
+                progressBar.setProgress(p);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

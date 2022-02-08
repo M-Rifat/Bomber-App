@@ -11,7 +11,6 @@
     tools:context=".MainActivity">
 
         <TextView
-            
             android:layout_width="220dp"
             android:layout_height="34dp"
             android:layout_alignParentLeft="true"
@@ -115,6 +114,18 @@
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/rectangle_1" />
+
+    <ProgressBar
+        android:id="@+id/pb"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        android:layout_marginTop="30dp"
+        android:progressBackgroundTint="@android:color/white"
+        android:progressTint="@color/purple_700"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        />
 
         <Button
             android:id="@+id/click"
