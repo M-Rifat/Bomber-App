@@ -71,24 +71,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         try {
             if (v.getId() == R.id.click) {
-                attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
-                progressBar.setVisibility(View.VISIBLE);
-                resultTextView.setText("Please Wait and Don't Close APP");
-                attackButton.setEnabled(false);
-                Thread.sleep(2000);
-
                 String mobile = numberEditText.getText().toString();
-                int amount = Integer.parseInt(amountEditText.getText().toString());
-                for (int i = 0; i < amount; i++) {
-                    swapnoApi(mobile);
-                    blshopApi(mobile);
-                    bongobdApi(mobile);
-                    bioscopeApi(mobile);
-                    //             Thread.sleep(30000);
+                String amnt = amountEditText.getText().toString();
+                if(mobile.equals("") || amnt.equals("")){
+                    Toast.makeText(MainActivity.this,"Enter Valid Number or Amount",Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                progressBar.setVisibility(View.GONE);
-                //             resultTextView.setText("DONE");
-                attackButton.setEnabled(true);
+                else{
+                    attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
+                    progressBar.setVisibility(View.VISIBLE);
+                    resultTextView.setText("Please Wait and Don't Close APP");
+                    attackButton.setEnabled(false);
+
+                    int amount = Integer.parseInt(amnt);
+                    for (int i = 0; i < amount; i++) {
+                        swapnoApi(mobile);
+                        blshopApi(mobile);
+                        bongobdApi(mobile);
+                        bioscopeApi(mobile);
+                        //             Thread.sleep(30000);
+                    }
+                    progressBar.setVisibility(View.GONE);
+                    //             resultTextView.setText("DONE");
+                    attackButton.setEnabled(true);
+                }
+
             }
         } catch (Exception e) {
             resultTextView.setText("Unsuccessfull");
