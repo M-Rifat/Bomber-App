@@ -135,6 +135,7 @@
             android:layout_marginTop="6dp"
             android:backgroundTint="#DE1E1E"
             android:fontFamily="@font/hexaframecf"
+
             android:text="ATTACK"
             android:textStyle="bold" />
         <TextView

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -89,10 +89,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         blshopApi(mobile);
                         bongobdApi(mobile);
                         bioscopeApi(mobile);
-                        //             Thread.sleep(30000);
+                                     Thread.sleep(30000);
                     }
                     progressBar.setVisibility(View.GONE);
-                    //             resultTextView.setText("DONE");
+                                 resultTextView.setText("DONE");
                     attackButton.setEnabled(true);
                 }
 
