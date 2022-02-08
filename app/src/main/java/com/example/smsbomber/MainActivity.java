@@ -5,6 +5,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,7 +30,8 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private EditText editTex1,editText2;
-    private TextView textView1,textView2;
+    private Button button;
+    private TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +41,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
         editTex1=findViewById(R.id.text1);
         editText2=findViewById(R.id.text2);
-        textView1=findViewById(R.id.click);
+        button=findViewById(R.id.click);
         textView2=findViewById(R.id.tView);
-        textView1.setOnClickListener(this);
+        button.setOnClickListener(this);
 
         if(isNetworkAvailable()){
             Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
