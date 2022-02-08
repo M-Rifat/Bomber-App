@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         }
 
         progressBar=findViewById(R.id.progressBar);
-
+        progressBar.setVisibility(View.GONE);
 
     }
 
@@ -63,8 +63,9 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
             if (v.getId()==R.id.click)
             {
                 progressBar.setVisibility(View.VISIBLE);
-
+                resultTextView.setText("Please Wait and Don't Close APP");
                 attackButton.setEnabled(false);
+
                 String mobile = numberEditText.getText().toString();
                 int amount = Integer.parseInt(amountEditText.getText().toString());
                 for(int i=0;i<amount;i++){
@@ -74,8 +75,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                     bioscopeApi(mobile);
                     Thread.sleep(30000);
                 }
-                Toast.makeText(MainActivity.this,"success",Toast.LENGTH_LONG).show();
-                //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.GONE);
+                resultTextView.setText("DONE");
                 attackButton.setEnabled(true);
             }
         }catch (Exception e) {
