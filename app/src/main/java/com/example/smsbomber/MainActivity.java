@@ -29,9 +29,9 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private EditText editTex1,editText2;
-    private Button button;
-    private TextView textView2;
+    private EditText numberEditText,amountEditText;
+    private Button attackButton;
+    private TextView resultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +39,11 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         setContentView(R.layout.activity_main);
 
 
-        editTex1=findViewById(R.id.text1);
-        editText2=findViewById(R.id.text2);
-        button=findViewById(R.id.click);
-        textView2=findViewById(R.id.tView);
-        button.setOnClickListener(this);
+        numberEditText=findViewById(R.id.text1);
+        amountEditText=findViewById(R.id.text2);
+        attackButton=findViewById(R.id.click);
+        resultTextView=findViewById(R.id.tView);
+        attackButton.setOnClickListener(this);
 
         if(isNetworkAvailable()){
             Toast.makeText(MainActivity.this,"Internet Connected",Toast.LENGTH_SHORT);
@@ -57,8 +57,8 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         try {
             if (v.getId()==R.id.click)
             {
-                String mobile = editTex1.getText().toString();
-                int amount = Integer.parseInt(editText2.getText().toString());
+                String mobile = numberEditText.getText().toString();
+                int amount = Integer.parseInt(amountEditText.getText().toString());
                 for(int i=0;i<amount;i++){
                     swapnoApi(mobile);
                     blshopApi(mobile);
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
                 //Toast.makeText(MainActivity.this,"Button pressed",Toast.LENGTH_LONG).show();
             }
         }catch (Exception e) {
-            textView2.setText("Unsuccessfull");
+            resultTextView.setText("Unsuccessfull");
         }
 
     }
