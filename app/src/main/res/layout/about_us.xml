@@ -2,17 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:background="#250505">
 
-    <TextView
-        android:id="@+id/text1"
-        android:layout_gravity="center_vertical"
+    <ImageView
+        android:layout_marginTop="100dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Made by BARNSAWG Team "
-        android:fontFamily="@font/hexaframecf"
-        android:textColor="#DE1E1E"
+        android:layout_height="200dp"
+        android:background="@drawable/rsz_hacker"
         />
+
+<TextView
+    android:layout_marginTop="100dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Developers are working to add more features"
+    android:textColor="#1CD323"
+    android:fontFamily="@font/hexaframecf"/>
 
 </LinearLayout>

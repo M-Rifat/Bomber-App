@@ -1,6 +1,7 @@
 package com.example.smsbomber;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,5 @@ public class AboutUs extends AppCompatActivity {
         setContentView(R.layout.about_us);
 
         textView=findViewById(R.id.text1);
-
     }
 }

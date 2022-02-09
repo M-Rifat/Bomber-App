@@ -78,8 +78,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 } else {
                     attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
+                    attackButton.setText("Succeed");
                     //    progressBar.setVisibility(View.VISIBLE);
-                    resultTextView.setText("Please Wait and Don't Close APP");
+                 //   resultTextView.setText("Please Wait and Don't Close APP");
                     attackButton.setEnabled(false);
 
                     int amount = Integer.parseInt(amnt);
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                      //   Thread.sleep(10000);
                     }
 
-                    resultTextView.setText("DONE");
+               //     resultTextView.setText("DONE");
                  //   progressBar.setVisibility(View.GONE);
                     attackButton.setEnabled(true);
                 }

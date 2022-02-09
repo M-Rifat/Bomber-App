@@ -148,6 +148,13 @@
             android:fontFamily="@font/hexaframecf"
             android:textSize="20dp"
             android:textStyle="italic" />
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hexaframecf"
+        android:text="Developed by Alex and Carlo"
+        android:textColor="#DE1E1E"/>
 
     </LinearLayout>
 
