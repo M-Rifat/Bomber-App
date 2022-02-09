@@ -73,13 +73,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (v.getId() == R.id.click) {
                 String mobile = numberEditText.getText().toString();
                 String amnt = amountEditText.getText().toString();
-                if(mobile.equals("") || amnt.equals("")){
-                    Toast.makeText(MainActivity.this,"Enter Valid Number or Amount",Toast.LENGTH_SHORT).show();
+                if (mobile.equals("") || amnt.equals("")) {
+                    Toast.makeText(MainActivity.this, "Enter Valid Number or Amount", Toast.LENGTH_SHORT).show();
                     return;
-                }
-                else{
+                } else {
                     attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
-                    progressBar.setVisibility(View.VISIBLE);
+                    //    progressBar.setVisibility(View.VISIBLE);
                     resultTextView.setText("Please Wait and Don't Close APP");
                     attackButton.setEnabled(false);
 
@@ -89,10 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         blshopApi(mobile);
                         bongobdApi(mobile);
                         bioscopeApi(mobile);
-                                     Thread.sleep(30000);
+                     //   Thread.sleep(10000);
                     }
-                    progressBar.setVisibility(View.GONE);
-                                 resultTextView.setText("DONE");
+
+                    resultTextView.setText("DONE");
+                 //   progressBar.setVisibility(View.GONE);
                     attackButton.setEnabled(true);
                 }
 
