@@ -53,6 +53,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
 
+        numberEditText = findViewById(R.id.text1);
+        amountEditText = findViewById(R.id.text2);
+        attackButton = findViewById(R.id.click);
+        resultTextView = findViewById(R.id.tView);
+        attackButton.setOnClickListener(this);
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.INVISIBLE);
+        resultTextView.setText("");
+
         // Declaring a layout (changes are to be made to this)
         // Declaring a textview (which is inside the layout)
         SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refreshLayout);
@@ -67,24 +76,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         attackButton.setBackgroundColor(Color.parseColor("#DE1E1E"));
                         attackButton.setText("ATTACK");
                         resultTextView.setText("");
-
+                        attackButton.setEnabled(true);
                         swipeRefreshLayout.setRefreshing(false);
+                        progressBar.setVisibility(View.INVISIBLE);
                     }
                 }
         );
 
-        numberEditText = findViewById(R.id.text1);
-        amountEditText = findViewById(R.id.text2);
-        attackButton = findViewById(R.id.click);
-        resultTextView = findViewById(R.id.tView);
-        attackButton.setOnClickListener(this);
 
-        if (isNetworkAvailable()) {
-            Toast.makeText(MainActivity.this, "Internet Connected", Toast.LENGTH_SHORT);
+        if (!isNetworkAvailable()) {
+            Toast.makeText(MainActivity.this, "Please Connect Internet", Toast.LENGTH_SHORT);
         }
 
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
+
     }
 
     @Override
@@ -99,23 +103,47 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 } else {
                     attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
-                    attackButton.setText("Succeed");
-                    //    progressBar.setVisibility(View.VISIBLE);
-                    resultTextView.setText("Swipe Down to Refresh");
+
                     attackButton.setEnabled(false);
-
+                    progressBar.setVisibility(View.VISIBLE);
                     int amount = Integer.parseInt(amnt);
-                    for (int i = 0; i < amount; i++) {
-                        swapnoApi(mobile);
-                        blshopApi(mobile);
-                        bongobdApi(mobile);
-                        bioscopeApi(mobile);
-                     //   Thread.sleep(10000);
-                    }
 
-               //     resultTextView.setText("DONE");
-                 //   progressBar.setVisibility(View.GONE);
-                    attackButton.setEnabled(true);
+                    Thread thread = new Thread(){
+                        @Override
+                        synchronized public void run() {
+                            for (int i = 0; i < amount; i++) {
+                                swapnoApi(mobile);
+                                blshopApi(mobile);
+                                bongobdApi(mobile);
+                                bioscopeApi(mobile);
+                                try {
+                                    sleep(10000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        }
+                    };
+                    thread.start();
+                    //thread.join();
+
+                    Thread nThread = new Thread(){
+                        @Override
+                        synchronized public void run() {
+                            attackButton.setText("Wait");
+                            try {
+                                sleep(5000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                            attackButton.setText("Succeed");
+                            resultTextView.setText("Swipe Down to Refresh");
+                            progressBar.setVisibility(View.INVISIBLE);
+
+                        }
+                    };
+                    nThread.start();
                 }
 
             }

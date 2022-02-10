@@ -134,7 +134,7 @@
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:indeterminateDrawable="@drawable/progress_icon"
  />
 
@@ -145,20 +145,21 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="10dp"
             android:backgroundTint="#DE1E1E"
             android:fontFamily="@font/hexaframecf"
-
             android:text="ATTACK"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="3dp"
-            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/hexaframecf"
+            android:textColor="@color/white"
             android:textSize="10dp"
             android:textStyle="italic" />
     <TextView
