@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">SMSBomber</string>
+    <style name="app_name">
+        <item name="android:fontFamily">@font/hexaframecf</item>
+    </style>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

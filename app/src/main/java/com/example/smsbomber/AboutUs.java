@@ -9,13 +9,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AboutUs extends AppCompatActivity {
 
-    private TextView textView;
+    private TextView txtMarquee;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_us);
 
-        textView=findViewById(R.id.text1);
+        txtMarquee = (TextView) findViewById(R.id.marqueeText);
+
+        txtMarquee.setSelected(true);
     }
 }
