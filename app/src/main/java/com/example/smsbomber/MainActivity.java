@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,6 +52,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+
+        // Declaring a layout (changes are to be made to this)
+        // Declaring a textview (which is inside the layout)
+        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refreshLayout);
+
+        // Refresh  the layout
+        swipeRefreshLayout.setOnRefreshListener(
+                new SwipeRefreshLayout.OnRefreshListener() {
+                    @Override
+                    public void onRefresh() {
+                        numberEditText.setText("");
+                        amountEditText.setText("");
+                        attackButton.setBackgroundColor(Color.parseColor("#DE1E1E"));
+                        attackButton.setText("ATTACK");
+                        resultTextView.setText("");
+
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }
+        );
 
         numberEditText = findViewById(R.id.text1);
         amountEditText = findViewById(R.id.text2);
@@ -80,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
                     attackButton.setText("Succeed");
                     //    progressBar.setVisibility(View.VISIBLE);
-                 //   resultTextView.setText("Please Wait and Don't Close APP");
+                    resultTextView.setText("Swipe Down to Refresh");
                     attackButton.setEnabled(false);
 
                     int amount = Integer.parseInt(amnt);

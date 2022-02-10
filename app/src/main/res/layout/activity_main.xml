@@ -4,11 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center_vertical"
+
     android:orientation="vertical"
     android:background="#250505"
     tools:context=".MainActivity">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="220dp"
@@ -36,24 +47,26 @@
             android:textAppearance="@style/developers_"
             android:translationY="-3.6sp" />
 
+
+
         <LinearLayout
             android:layout_width="256dp"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:layout_width="8.58dp"
-                android:layout_height="15.02dp"
+                android:layout_height="26dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
                 android:src="@drawable/number"
-                android:translationY="-3.84sp" />
+                android:translationY="-4.84sp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -62,7 +75,7 @@
                 android:lineSpacingExtra="8sp"
                 android:text="@string/mobile_numb"
                 android:textAppearance="@style/mobile_numb"
-                android:translationY="-3.84sp" />
+                android:translationY="-2.84sp" />
         </LinearLayout>
 
 
@@ -78,22 +91,22 @@
 
         <LinearLayout
             android:layout_width="256dp"
-            android:layout_height="wrap_content"
+            android:layout_height="18dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="21dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:layout_width="8.58dp"
-                android:layout_height="15.02dp"
+                android:layout_height="26dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
                 android:src="@drawable/amount"
-                android:translationY="-3.84sp" />
+                android:translationY="-4.84sp" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="2dp"
                 android:layout_alignParentLeft="true"
@@ -102,7 +115,7 @@
                 android:lineSpacingExtra="8sp"
                 android:text="@string/amount"
                 android:textAppearance="@style/amount"
-                android:translationY="-3.84sp" />
+                android:translationY="-2.84sp" />
         </LinearLayout>
 
 
@@ -143,18 +156,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="3dp"
             android:textColor="@color/white"
             android:fontFamily="@font/hexaframecf"
-            android:textSize="20dp"
+            android:textSize="10dp"
             android:textStyle="italic" />
     <TextView
+        android:layout_marginTop="50dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/hexaframecf"
         android:text="Developed by Alex and Carlo"
         android:textColor="#DE1E1E"/>
+    </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 
