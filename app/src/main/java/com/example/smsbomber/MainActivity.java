@@ -111,39 +111,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Thread thread = new Thread(){
                         @Override
                         synchronized public void run() {
-                            for (int i = 0; i < amount; i++) {
+                            attackButton.setText("Wait");
+                            int amt = (amount+1)/4;
+                            for (int i = 0; i < amt; i++) {
                                 swapnoApi(mobile);
                                 blshopApi(mobile);
                                 bongobdApi(mobile);
                                 bioscopeApi(mobile);
                                 try {
-                                    sleep(10000);
+                                    sleep(30000);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
 
                             }
+                            attackButton.setText("Succeed");
+                            resultTextView.setText("Swipe Down to Refresh");
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
                     };
                     thread.start();
                     //thread.join();
 
-                    Thread nThread = new Thread(){
-                        @Override
-                        synchronized public void run() {
-                            attackButton.setText("Wait");
-                            try {
-                                sleep(5000);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            attackButton.setText("Succeed");
-                            resultTextView.setText("Swipe Down to Refresh");
-                            progressBar.setVisibility(View.INVISIBLE);
-
-                        }
-                    };
-                    nThread.start();
+//                    Thread nThread = new Thread(){
+//                        @Override
+//                        synchronized public void run() {
+//                            attackButton.setText("Wait");
+//                            try {
+//                                sleep(5000);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                            attackButton.setText("Succeed");
+//                            resultTextView.setText("Swipe Down to Refresh");
+//                            progressBar.setVisibility(View.INVISIBLE);
+//
+//                        }
+//                    };
+//                    nThread.start();
                 }
 
             }
