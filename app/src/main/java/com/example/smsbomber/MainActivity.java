@@ -109,7 +109,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
         );
 
-
         if (!isNetworkAvailable()) {
             Toast.makeText(MainActivity.this, "Please Connect Internet", Toast.LENGTH_SHORT);
         }
