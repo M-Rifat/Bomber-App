@@ -316,7 +316,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (item.getItemId() == R.id.usid) {
             Intent intent = new Intent(this, AboutUs.class);
             startActivity(intent);
-
         }
 
         if(item.getItemId()==R.id.updateid){
