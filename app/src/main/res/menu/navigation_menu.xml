@@ -6,11 +6,12 @@
 
     <item
         android:id="@+id/bomb1"
-        android:title="First App"
+        android:title="SMS BOMBER"
+        
         ></item>
     <item
         android:id="@+id/bomb2"
-        android:title="Second App"
+        android:title="TEXT BOMBER"
         ></item>
 
 </menu>

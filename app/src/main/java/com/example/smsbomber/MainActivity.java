@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (item.getItemId() == R.id.srid) {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            String subject = "Anything what you want...";
+            String subject = "Have a good friend? Send him a bomb !:-]";
             String body = "https://github.com/wizard-carlo/APK/blob/main/bomber.apk";
             intent.putExtra(Intent.EXTRA_SUBJECT, subject);
             intent.putExtra(Intent.EXTRA_TEXT, body);
