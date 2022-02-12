@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -298,7 +299,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(item.getItemId()==R.id.updateid){
 
-            Toast.makeText(MainActivity.this, "Update is on the way...", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://github.com/wizard-carlo/APK/blob/main/bomber.apk"));
+                startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
