@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,8 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/my_drawer_layout"
     android:orientation="vertical"
-    android:background="#0B1A27"
-    tools:context=".MainActivity">
+    android:background="#071F32">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refreshLayout"
@@ -75,14 +74,14 @@
                     android:layout_marginLeft="2dp"
                     android:fontFamily="@font/hexaframecf"
                     android:lineSpacingExtra="8sp"
-                    android:text="MESSAGE"
+                    android:text="MESSAGES"
                     android:textAppearance="@style/mobile_numb"
                     android:translationY="-1.84sp" />
             </LinearLayout>
 
 
             <EditText
-                android:id="@+id/mtext1"
+                android:id="@+id/text1"
                 android:layout_width="256dp"
                 android:layout_height="37dp"
                 android:layout_alignParentLeft="true"
@@ -122,7 +121,7 @@
 
 
             <EditText
-                android:id="@+id/mtext2"
+                android:id="@+id/text2"
                 android:layout_width="256dp"
                 android:layout_height="37dp"
                 android:layout_alignParentLeft="true"
@@ -130,24 +129,15 @@
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/rectangle_1" />
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                android:layout_gravity="center_horizontal"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:indeterminateDrawable="@drawable/progress_icon"
-                />
 
             <Button
-                android:id="@+id/mclick"
+                android:id="@+id/click"
                 android:layout_width="183dp"
                 android:layout_height="48dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="40dp"
                 android:backgroundTint="#DE1E1E"
                 android:fontFamily="@font/hexaframecf"
                 android:text="SEND TEXT"
@@ -155,7 +145,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/mtView"
+                android:id="@+id/tView"
                 android:layout_width="match_parent"
                 android:layout_height="15dp"
                 android:layout_gravity="center_horizontal"
@@ -176,6 +166,15 @@
         </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemIconTint="@color/drawer"
+        app:itemTextColor="@color/drawer"
+        app:theme="@style/ThemeOverlay.AppCompat.navTheme"
+        app:menu="@menu/navigation_menu" />
 
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
 
