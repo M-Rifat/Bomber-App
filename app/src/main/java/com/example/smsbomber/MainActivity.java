@@ -337,8 +337,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
-                        //Toast.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
-                        updateIntentCall();
+                        //.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
+                        updateIntentCall(version);
                     }
                     else {
                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
@@ -348,7 +348,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Toast.makeText(MainActivity.this,"Your version is up to date",Toast.LENGTH_LONG).show();
                         }
                         else{
-                            updateIntentCall();
+                            updateIntentCall(nVersion);
                         }
                     }
                 }
@@ -359,11 +359,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-    public void updateIntentCall(){
+    public void updateIntentCall(String vv){
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        intent.setData(Uri.parse("https://github.com/wizard-carlo/APK/blob/main/bomber.apk"));
+        String url = String.valueOf("https://github.com/wizard-carlo/APK/blob/main/bomberV"+vv+".apk");
+        intent.setData(Uri.parse(url));
         startActivity(intent);
     }
 
