@@ -2,6 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/sid"
         android:title="Setting"
@@ -16,9 +17,9 @@
         android:id="@+id/srid"
         android:title="Share"
         app:showAsAction="always"
-
         android:icon="@drawable/ic_baseline_share_24"
         ></item>
+
     <item
         android:id="@+id/usid"
         android:title="About us"
