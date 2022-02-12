@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar.setVisibility(View.INVISIBLE);
         resultTextView.setText("");
 
-        version = "1.2";
+        version = "1.4";
 
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
