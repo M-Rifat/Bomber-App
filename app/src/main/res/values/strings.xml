@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SMSBomber</string>
+    <string name="app_name">Bomber</string>
     <style name="app_name">
         <item name="android:fontFamily">@font/hexaframecf</item>
     </style>

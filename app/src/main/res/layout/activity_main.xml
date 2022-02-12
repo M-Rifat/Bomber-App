@@ -58,7 +58,7 @@
 
             <ImageButton
                 android:layout_width="8.58dp"
-                android:layout_height="26dp"
+                android:layout_height="28dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
@@ -98,7 +98,7 @@
 
             <ImageButton
                 android:layout_width="8.58dp"
-                android:layout_height="26dp"
+                android:layout_height="28dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:background="#00000000"
@@ -149,6 +149,7 @@
             android:backgroundTint="#DE1E1E"
             android:fontFamily="@font/hexaframecf"
             android:text="ATTACK"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView

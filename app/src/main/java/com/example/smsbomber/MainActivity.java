@@ -102,7 +102,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(MainActivity.this, "Enter Valid Number or Amount", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
-                    attackButton.setBackgroundColor(Color.parseColor("#FF03A9F4"));
 
                     attackButton.setEnabled(false);
                     progressBar.setVisibility(View.VISIBLE);
@@ -111,44 +110,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Thread thread = new Thread(){
                         @Override
                         synchronized public void run() {
+                            attackButton.setBackgroundColor(Color.parseColor("#608832"));
                             attackButton.setText("Wait");
                             int amt = (amount+1)/4;
-                            for (int i = 0; i < amt; i++) {
+                            for (int i = 0; i <= amt+1; i++) {
                                 swapnoApi(mobile);
                                 blshopApi(mobile);
                                 bongobdApi(mobile);
                                 bioscopeApi(mobile);
                                 try {
-                                    sleep(30000);
+                                    sleep(15000);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
 
                             }
+                            attackButton.setBackgroundColor(Color.parseColor("#2294A3"));
                             attackButton.setText("Succeed");
                             resultTextView.setText("Swipe Down to Refresh");
                             progressBar.setVisibility(View.INVISIBLE);
                         }
                     };
                     thread.start();
-                    //thread.join();
-
-//                    Thread nThread = new Thread(){
-//                        @Override
-//                        synchronized public void run() {
-//                            attackButton.setText("Wait");
-//                            try {
-//                                sleep(5000);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
-//                            attackButton.setText("Succeed");
-//                            resultTextView.setText("Swipe Down to Refresh");
-//                            progressBar.setVisibility(View.INVISIBLE);
-//
-//                        }
-//                    };
-//                    nThread.start();
                 }
 
             }
@@ -302,8 +285,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (item.getItemId() == R.id.srid) {
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
-            String subject = "Anything what you want";
-            String body = "So much important app !!";
+            String subject = "Anything what you want...";
+            String body = "https://github.com/wizard-carlo/APK/blob/main/bomber.apk";
             intent.putExtra(Intent.EXTRA_SUBJECT, subject);
             intent.putExtra(Intent.EXTRA_TEXT, body);
             startActivity(Intent.createChooser(intent, "Share with"));
@@ -313,7 +296,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
 
         }
+        if(item.getItemId()==R.id.updateid){
+
+            Toast.makeText(MainActivity.this, "Update is on the way...", Toast.LENGTH_SHORT).show();
+        }
+
         return super.onOptionsItemSelected(item);
+
     }
 
 }

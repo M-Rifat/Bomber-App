@@ -16,11 +16,17 @@
         android:id="@+id/srid"
         android:title="Share"
         app:showAsAction="always"
+
         android:icon="@drawable/ic_baseline_share_24"
         ></item>
     <item
         android:id="@+id/usid"
         android:title="About us"
+        app:showAsAction="never"
+        ></item>
+    <item
+        android:id="@+id/updateid"
+        android:title="Check For Updates"
         app:showAsAction="never"
         ></item>
 
