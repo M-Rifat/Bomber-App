@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +27,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -48,7 +54,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressBar progressBar;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
-
+    public String nVersion;
+    public String version;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
         resultTextView.setText("");
+
+        version = "1.1";
 
         // Declaring a layout (changes are to be made to this)
         // Declaring a textview (which is inside the layout)
@@ -320,16 +329,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if(item.getItemId()==R.id.updateid){
 
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://github.com/wizard-carlo/APK/blob/main/bomber.apk"));
-                startActivity(intent);
+            DatabaseReference mDatabase;
+            nVersion = "";
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("version").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DataSnapshot> task) {
+                    if (!task.isSuccessful()) {
+                        Log.e("firebase", "Error getting data", task.getException());
+                        //.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
+                        updateIntentCall();
+                    }
+                    else {
+                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                        //Toast.makeText(MainActivity.this,version,Toast.LENGTH_LONG).show();
+                        nVersion = String.valueOf(task.getResult().getValue());
+                        if(version.equals(nVersion)){
+                            Toast.makeText(MainActivity.this,"Your version is up to date",Toast.LENGTH_LONG).show();
+                        }
+                        else{
+                            updateIntentCall();
+                        }
+                    }
+                }
+            });
         }
 
         return super.onOptionsItemSelected(item);
 
 
+    }
+    public void updateIntentCall(){
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+        intent.setData(Uri.parse("https://github.com/wizard-carlo/APK/blob/main/bomber.apk"));
+        startActivity(intent);
     }
 
 }
