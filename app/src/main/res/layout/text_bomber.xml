@@ -1,14 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/my_drawer_layout"
     android:orientation="vertical"
-    android:layout_gravity="center_horizontal"
-    android:gravity="center">
+    android:background="#0B1A27"
+    tools:context=".MainActivity">
 
-    <EditText
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Its Working"
-        />
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="34dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/hexaframecf"
+                android:gravity="top"
+                android:text="TEXT BOMBER"
+                android:textAppearance="@style/sexybomber" />
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="256dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="37dp"
+                android:fontFamily="@font/hexaframecf"
+                android:gravity="center_horizontal|top"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/developers_"
+                android:textAppearance="@style/developers_"
+                android:translationY="-3.6sp" />
+
+
+
+            <LinearLayout
+                android:layout_width="256dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="8.58dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#00000000"
+                    android:src="@drawable/number"
+                    android:translationY="-5.84sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="2dp"
+                    android:fontFamily="@font/hexaframecf"
+                    android:lineSpacingExtra="8sp"
+                    android:text="MESSAGE"
+                    android:textAppearance="@style/mobile_numb"
+                    android:translationY="-1.84sp" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/mtext1"
+                android:layout_width="256dp"
+                android:layout_height="37dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+
+                android:background="@drawable/rectangle_1" />
+
+            <LinearLayout
+                android:layout_width="256dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="21dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:layout_width="8.58dp"
+                    android:layout_height="28dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#00000000"
+                    android:src="@drawable/amount"
+                    android:translationY="-5.84sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:fontFamily="@font/hexaframecf"
+                    android:lineSpacingExtra="8sp"
+                    android:text="@string/amount"
+                    android:textAppearance="@style/amount"
+                    android:translationY="-1.84sp" />
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/mtext2"
+                android:layout_width="256dp"
+                android:layout_height="37dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/rectangle_1" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_gravity="center_horizontal"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:indeterminateDrawable="@drawable/progress_icon"
+                />
+
+            <Button
+                android:id="@+id/mclick"
+                android:layout_width="183dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="#DE1E1E"
+                android:fontFamily="@font/hexaframecf"
+                android:text="SEND TEXT"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mtView"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/hexaframecf"
+                android:textColor="@color/white"
+                android:textSize="10dp"
+                android:textStyle="italic" />
+            <TextView
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/hexaframecf"
+                android:text="Developed by Alex and Carlo"
+                android:textColor="#DE1E1E"/>
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 </LinearLayout>
+

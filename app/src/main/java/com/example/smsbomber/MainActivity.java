@@ -1,6 +1,7 @@
 package com.example.smsbomber;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
@@ -36,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public String nVersion;
     public String version;
+    private AlertDialog.Builder alert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        this.setTitle("SMS Bomber");
 
 
         numberEditText = findViewById(R.id.text1);
@@ -370,10 +374,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.textbombid) {
-            Toast.makeText(MainActivity.this,"okay",Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, TextBomber.class);
+            Intent intent = new Intent(this,TextBomber.class);
             startActivity(intent);
         }
+        if (item.getItemId() == R.id.smsbombid) {
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
+
         return true;
+    }
+    public void onBackPressed() {
+
+        alert=new AlertDialog.Builder(MainActivity.this);
+        alert.setIcon(R.drawable.logout);
+        alert.setTitle("Attention!");
+        alert.setMessage("Do you want to exit ?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alertDialog=alert.create();
+        alertDialog.show();
     }
 }
