@@ -5,12 +5,12 @@
     >
 
     <item
-        android:id="@+id/bomb1"
+        android:id="@+id/smsbombid"
         android:title="SMS BOMBER"
         
         ></item>
     <item
-        android:id="@+id/bomb2"
+        android:id="@+id/textbombid"
         android:title="TEXT BOMBER"
         ></item>
 

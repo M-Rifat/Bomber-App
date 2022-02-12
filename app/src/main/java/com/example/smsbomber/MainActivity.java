@@ -29,6 +29,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -44,9 +45,8 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private EditText numberEditText, amountEditText;
     private Button attackButton;
@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public ActionBarDrawerToggle actionBarDrawerToggle;
     public String nVersion;
     public String version;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,17 +65,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
-
-        // drawer and back button to close drawer
-        drawerLayout = findViewById(R.id.my_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
-
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-
-        // to make the Navigation drawer icon always appear on the action bar
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
 
         numberEditText = findViewById(R.id.text1);
@@ -88,9 +78,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         version = "1.2";
 
-        // Declaring a layout (changes are to be made to this)
-        // Declaring a textview (which is inside the layout)
-        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.refreshLayout);
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // Navigation drawer icon always appear on the action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //swipe to refresh
+        SwipeRefreshLayout swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
 
         // Refresh  the layout
         swipeRefreshLayout.setOnRefreshListener(
@@ -133,13 +135,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     progressBar.setVisibility(View.VISIBLE);
                     int amount = Integer.parseInt(amnt);
 
-                    Thread thread = new Thread(){
+                    Thread thread = new Thread() {
                         @Override
                         synchronized public void run() {
                             attackButton.setBackgroundColor(Color.parseColor("#608832"));
                             attackButton.setText("Wait");
-                            int amt = (amount+1)/4;
-                            for (int i = 0; i <= amt+1; i++) {
+                            int amt = (amount + 1) / 4;
+                            for (int i = 0; i <= amt + 1; i++) {
                                 swapnoApi(mobile);
                                 blshopApi(mobile);
                                 bongobdApi(mobile);
@@ -316,17 +318,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("text/plain");
             String subject = "Have a good friend? Send him a bomb !:-]";
-            String body = "https://github.com/wizard-carlo/APK/blob/main/bomber.apk";
+            String body = String.valueOf("https://github.com/wizard-carlo/APK/blob/main/bomberV" + version + ".apk");
             intent.putExtra(Intent.EXTRA_SUBJECT, subject);
             intent.putExtra(Intent.EXTRA_TEXT, body);
             startActivity(Intent.createChooser(intent, "Share with"));
         }
         if (item.getItemId() == R.id.usid) {
-            Intent intent = new Intent(this, AboutUs.class);
+            Intent intent = new Intent(MainActivity.this, AboutUs.class);
             startActivity(intent);
         }
 
-        if(item.getItemId()==R.id.updateid){
+        if (item.getItemId() == R.id.updateid) {
 
             DatabaseReference mDatabase;
             nVersion = "";
@@ -338,15 +340,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Log.e("firebase", "Error getting data", task.getException());
                         //.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
                         updateIntentCall(version);
-                    }
-                    else {
+                    } else {
                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
                         //Toast.makeText(MainActivity.this,version,Toast.LENGTH_LONG).show();
                         nVersion = String.valueOf(task.getResult().getValue());
-                        if(version.equals(nVersion)){
-                            Toast.makeText(MainActivity.this,"Your version is up to date",Toast.LENGTH_LONG).show();
-                        }
-                        else{
+                        if (version.equals(nVersion)) {
+                            Toast.makeText(MainActivity.this, "Your version is up to date", Toast.LENGTH_LONG).show();
+                        } else {
                             updateIntentCall(nVersion);
                         }
                     }
@@ -356,13 +356,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         return super.onOptionsItemSelected(item);
     }
-    public void updateIntentCall(String vv){
+
+    public void updateIntentCall(String vv) {
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
-        String url = String.valueOf("https://github.com/wizard-carlo/APK/blob/main/bomberV"+vv+".apk");
+        String url = String.valueOf("https://github.com/wizard-carlo/APK/blob/main/bomberV" + vv + ".apk");
         intent.setData(Uri.parse(url));
         startActivity(intent);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        if (item.getItemId() == R.id.textbombid) {
+            Toast.makeText(MainActivity.this,"okay",Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, TextBomber.class);
+            startActivity(intent);
+        }
+        return true;
+    }
 }
