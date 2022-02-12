@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "952764330203",
+    "firebase_url": "https://bomber-63739-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "bomber-63739",
+    "storage_bucket": "bomber-63739.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952764330203:android:b932f1152b8027d24e9cfe",
+        "android_client_info": {
+          "package_name": "com.example.smsbomber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952764330203-g4q9ou5crlpt0h1hbum53b4lf32hhsf9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0BkD4dj-xjOq4rTpf74k49ZTlwxJCAi4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952764330203-g4q9ou5crlpt0h1hbum53b4lf32hhsf9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
