@@ -355,8 +355,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-
-
     }
     public void updateIntentCall(String vv){
         Intent intent = new Intent();
