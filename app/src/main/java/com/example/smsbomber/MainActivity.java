@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar.setVisibility(View.INVISIBLE);
         resultTextView.setText("");
 
-        version = "1.1";
+        version = "1.2";
 
         // Declaring a layout (changes are to be made to this)
         // Declaring a textview (which is inside the layout)
@@ -337,7 +337,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
                     if (!task.isSuccessful()) {
                         Log.e("firebase", "Error getting data", task.getException());
-                        //.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
+                        //Toast.makeText(MainActivity.this,task.getException().toString(),Toast.LENGTH_LONG).show();
                         updateIntentCall();
                     }
                     else {
