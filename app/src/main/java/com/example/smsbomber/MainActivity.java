@@ -32,8 +32,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -60,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public String nVersion;
     public String version;
     private AlertDialog.Builder alert;
+    private DatabaseReference mDatabase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         this.setTitle("SMS Bomber");
-
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         numberEditText = findViewById(R.id.text1);
         amountEditText = findViewById(R.id.text2);
@@ -82,6 +86,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         resultTextView.setText("");
 
         version = "1.6";
+        //realtime project check
+        isClosed();
+
+
 
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -334,10 +342,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if (item.getItemId() == R.id.updateid) {
-
-            DatabaseReference mDatabase;
             nVersion = "";
-            mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("version").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -406,5 +411,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         AlertDialog alertDialog=alert.create();
         alertDialog.show();
+    }
+    public void isClosed(){
+        DatabaseReference mChange = FirebaseDatabase.getInstance().getReference("isClosed");
+
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                boolean isC = (boolean) dataSnapshot.getValue();
+                if(isC){
+                    Toast.makeText(MainActivity.this,"The project is closed",Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                else{
+                    //Toast.makeText(MainActivity.this,"closed open",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+
+            }
+        };
+        mChange.addValueEventListener(postListener);
     }
 }
