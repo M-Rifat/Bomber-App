@@ -54,7 +54,7 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private EditText numberEditText, amountEditText;
-    private Button attackButton;
+    private Button attackButton,isUpdateButton;
     private TextView resultTextView;
     private ProgressBar progressBar;
     public DrawerLayout drawerLayout;
@@ -84,10 +84,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar = findViewById(R.id.progressBar);
         progressBar.setVisibility(View.INVISIBLE);
         resultTextView.setText("");
+        isUpdateButton = findViewById(R.id.updateBtn);
+        isUpdateButton.setOnClickListener(this);
+        //isUpdateButton.setEnabled(false);
+        isUpdateButton.setVisibility(View.INVISIBLE);
 
         version = "1.6";
         //realtime project check
         isClosed();
+        isVersionChange();
 
 
 
@@ -175,6 +180,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     thread.start();
                 }
 
+            }
+            if(v.getId()==R.id.updateBtn){
+                Toast.makeText(MainActivity.this,"Button clicked",Toast.LENGTH_LONG).show();
+                alert=new AlertDialog.Builder(MainActivity.this);
+                alert.setIcon(R.drawable.logout);
+                alert.setTitle("New update");
+                alert.setMessage("Do you want to Update?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //update method
+                        updateIntentCall(nVersion);
+                    }
+                });
+                alert.setNegativeButton("Later", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        isUpdateButton.setVisibility(View.INVISIBLE);
+                        isUpdateButton.setEnabled(false);
+                    }
+                });
+
+                AlertDialog alertDialog=alert.create();
+                alertDialog.show();
             }
         } catch (Exception e) {
             resultTextView.setText("Unsuccessfull");
@@ -415,7 +445,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void isClosed(){
         DatabaseReference mChange = FirebaseDatabase.getInstance().getReference("isClosed");
 
-
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -426,6 +455,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else{
                     //Toast.makeText(MainActivity.this,"closed open",Toast.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+
+            }
+        };
+        mChange.addValueEventListener(postListener);
+    }
+    public void isVersionChange(){
+        DatabaseReference mChange = FirebaseDatabase.getInstance().getReference("version");
+
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String nVV = (String) dataSnapshot.getValue();
+                if(nVV.equals(version)){
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"update update",Toast.LENGTH_LONG).show();
+                    //isUpdateButton.setEnabled(true);
+                    isUpdateButton.setVisibility(View.VISIBLE);
+                    nVersion = nVV;
                 }
             }
 
