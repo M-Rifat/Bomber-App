@@ -181,9 +181,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
             if(v.getId()==R.id.updateBtn){
-                Toast.makeText(MainActivity.this,"Button clicked",Toast.LENGTH_LONG).show();
+       //         Toast.makeText(MainActivity.this,"Button clicked",Toast.LENGTH_LONG).show();
+
                 alert=new AlertDialog.Builder(MainActivity.this);
-                alert.setIcon(R.drawable.logout);
+                alert.setIcon(R.drawable.update);
                 alert.setTitle("New update");
                 alert.setMessage("Do you want to Update?");
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {

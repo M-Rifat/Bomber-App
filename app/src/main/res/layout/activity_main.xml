@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="32dp"
             android:textSize="10dp"
-            android:textColor="@color/white"
+            android:textColor="#FF9800"
             android:text="Update Available"/>
     </LinearLayout>
 
