@@ -23,11 +23,13 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
     private Button button;
     private EditText editText1, editText2;
     private RatingBar ratingBar;
-
+    String ratingg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.feedback);
+
+        ratingg = new String("");
 
         //back home button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -42,7 +44,8 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast.makeText(Feedback.this,"value : "+rating,Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Feedback.this,"value : "+rating,Toast.LENGTH_SHORT).show();
+                ratingg = String.valueOf(rating);
             }
         });
     }
@@ -58,18 +61,22 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         try {
-            String email = editText1.getText().toString();
-            String comment = editText2.getText().toString();
-            sendFeedback(email,comment);
-            editText1.setText("");
-            editText2.setText("");
+            if(v.getId()==R.id.bt){
+                String email = editText1.getText().toString();
+                String comment = editText2.getText().toString();
+                sendFeedback(email,comment,ratingg);
+                editText1.setText("");
+                editText2.setText("");
+                ratingBar.setRating(0F);
+            }
+
 
         } catch (Exception e) {
         }
 
 
     }
-    public void sendFeedback(String email,String comment){
+    public void sendFeedback(String email,String comment,String rating){
         DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("feedback");
         //  Map<String ,Object> unique_key = new HashMap<String ,Object>();
         String temp_key = root.push().getKey();
@@ -78,6 +85,7 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
         DatabaseReference userRef = root.child(temp_key);
         userMessage.put("Email",email);
         userMessage.put("Comment",comment);
+        userMessage.put("Rating",rating);
         userRef.updateChildren(userMessage);
 
     }
