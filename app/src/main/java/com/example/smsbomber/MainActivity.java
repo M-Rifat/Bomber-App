@@ -478,6 +478,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String nVV = (String) dataSnapshot.getValue();
                 if(nVV.equals(version)){
+                    isUpdateButton.setVisibility(View.INVISIBLE);
                 }
                 else{
                    // Toast.makeText(MainActivity.this,"update update",Toast.LENGTH_LONG).show();
