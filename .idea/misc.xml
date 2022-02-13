@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/drawer.xml" value="0.143" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1425" />
@@ -10,9 +11,11 @@
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/drawable/rectangle_3.xml" value="0.1425" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/about_us.xml" value="0.20168066580377575" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/activity_main.xml" value="0.26621847886098404" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/drawer.xml" value="0.2630208333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/feedback.xml" value="0.2630208333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/fragment_first.xml" value="0.18478260869565216" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/fragment_second.xml" value="0.18478260869565216" />
-        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/text_bomber.xml" value="0.2630208333333333" />
+        <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/layout/text_bomber.xml" value="0.2874617737003058" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/menu/menu_2layout.xml" value="0.2630208333333333" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/menu/menu_main.xml" value="0.2212962962962963" />
         <entry key="..\:/Users/Lenovo/AndroidStudioProjects/New/SMSBomber/app/src/main/res/menu/navigation_menu.xml" value="0.2630208333333333" />
@@ -24,7 +27,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

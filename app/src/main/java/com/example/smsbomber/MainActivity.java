@@ -370,6 +370,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, AboutUs.class);
             startActivity(intent);
         }
+        if (item.getItemId() == R.id.fid) {
+            Intent intent = new Intent(MainActivity.this, Feedback.class);
+            startActivity(intent);
+        }
 
         if (item.getItemId() == R.id.updateid) {
             nVersion = "";
