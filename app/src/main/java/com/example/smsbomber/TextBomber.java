@@ -82,8 +82,6 @@ public class TextBomber extends AppCompatActivity implements View.OnClickListene
                     public void onRefresh() {
                         numberEditText.setText("");
                         amountEditText.setText("");
-                        attackButton.setBackgroundColor(Color.parseColor("#DE1E1E"));
-                        attackButton.setText("ATTACK");
                         resultTextView.setText("");
                         attackButton.setEnabled(true);
                         swipeRefreshLayout.setRefreshing(false);
@@ -139,6 +137,10 @@ public class TextBomber extends AppCompatActivity implements View.OnClickListene
         }
         if (item.getItemId() == R.id.usid) {
             Intent intent = new Intent(TextBomber.this, AboutUs.class);
+            startActivity(intent);
+        }
+        if (item.getItemId() == R.id.fid) {
+            Intent intent = new Intent(TextBomber.this, Feedback.class);
             startActivity(intent);
         }
 
