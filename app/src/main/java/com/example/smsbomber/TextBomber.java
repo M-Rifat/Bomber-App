@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -55,7 +57,7 @@ public class TextBomber extends AppCompatActivity implements View.OnClickListene
         attackButton.setOnClickListener(this);
         resultTextView.setText("");
 
-        version = "1.2";
+        version = "1.6";
 
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -185,8 +187,7 @@ public class TextBomber extends AppCompatActivity implements View.OnClickListene
             drawerLayout.closeDrawers();
         }
         if (item.getItemId() == R.id.smsbombid) {
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
+            this.finish();
         }
 
         return true;

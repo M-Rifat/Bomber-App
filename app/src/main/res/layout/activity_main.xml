@@ -181,9 +181,8 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        app:itemIconTint="@color/drawer"
-        app:itemTextColor="@color/drawer"
-        app:theme="@style/ThemeOverlay.AppCompat.navTheme"
+        app:itemTextColor="@color/white"
+        android:background="#242526"
         app:menu="@menu/navigation_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

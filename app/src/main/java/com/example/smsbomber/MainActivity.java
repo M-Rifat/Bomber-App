@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressBar.setVisibility(View.INVISIBLE);
         resultTextView.setText("");
 
-        version = "1.4";
+        version = "1.6";
 
         // drawer and back button to close drawer
         drawerLayout = findViewById(R.id.my_drawer_layout);
@@ -375,6 +375,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.textbombid) {
+            drawerLayout.closeDrawers();
             Intent intent = new Intent(this,TextBomber.class);
             startActivity(intent);
         }

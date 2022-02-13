@@ -11,6 +11,7 @@
     <item
         android:id="@+id/textbombid"
         android:title="TEXT BOMBER"
+        android:checked="true"
         ></item>
 
 </menu>

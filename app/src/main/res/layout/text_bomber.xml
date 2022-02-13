@@ -23,7 +23,7 @@
 
 
             <TextView
-                android:layout_width="220dp"
+                android:layout_width="wrap_content"
                 android:layout_height="34dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
@@ -31,7 +31,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/hexaframecf"
                 android:gravity="top"
-                android:text="TEXT BOMBER"
+                android:text="TEXTBOMBER"
                 android:textAppearance="@style/sexybomber" />
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="37dp"
-                android:fontFamily="@font/hexaframecf"
+                android:fontFamily="@font/dmsans"
                 android:gravity="center_horizontal|top"
                 android:lineSpacingExtra="7sp"
                 android:text="@string/developers_"
@@ -58,13 +58,13 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="8.58dp"
-                    android:layout_height="28dp"
+                    android:layout_width="15dp"
+                    android:layout_height="25dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:background="#00000000"
-                    android:src="@drawable/number"
-                    android:translationY="-5.84sp" />
+                    android:src="@drawable/messagenew"
+                    android:translationY="-4.84sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,9 +72,10 @@
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginLeft="2dp"
-                    android:fontFamily="@font/hexaframecf"
+                    android:fontFamily="@font/dmsans"
                     android:lineSpacingExtra="8sp"
                     android:text="MESSAGES"
+                    android:textStyle="bold"
                     android:textAppearance="@style/mobile_numb"
                     android:translationY="-1.84sp" />
             </LinearLayout>
@@ -98,12 +99,12 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:layout_width="8.58dp"
-                    android:layout_height="28dp"
+                    android:layout_width="17dp"
+                    android:layout_height="20dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:background="#00000000"
-                    android:src="@drawable/amount"
+                    android:src="@drawable/amountnew"
                     android:translationY="-5.84sp" />
 
                 <TextView
@@ -112,8 +113,9 @@
                     android:layout_marginLeft="2dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:fontFamily="@font/hexaframecf"
+                    android:fontFamily="@font/dmsans"
                     android:lineSpacingExtra="8sp"
+                    android:textStyle="bold"
                     android:text="@string/amount"
                     android:textAppearance="@style/amount"
                     android:translationY="-1.84sp" />
@@ -139,7 +141,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="40dp"
                 android:backgroundTint="#DE1E1E"
-                android:fontFamily="@font/hexaframecf"
+                android:fontFamily="@font/dmsans"
                 android:text="SEND TEXT"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
@@ -154,7 +156,7 @@
                 android:fontFamily="@font/hexaframecf"
                 android:textColor="@color/white"
                 android:textSize="10dp"
-                android:textStyle="italic" />
+                android:textStyle="bold" />
             <TextView
                 android:layout_marginTop="50dp"
                 android:layout_gravity="center"
@@ -173,7 +175,7 @@
         android:layout_gravity="start"
         app:itemIconTint="@color/drawer"
         app:itemTextColor="@color/drawer"
-        app:theme="@style/ThemeOverlay.AppCompat.navTheme"
+        android:background="#242526"
         app:menu="@menu/navigation_menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
