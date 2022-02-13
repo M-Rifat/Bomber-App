@@ -10,6 +10,12 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Feedback extends AppCompatActivity implements View.OnClickListener {
 
     private Button button;
@@ -42,20 +48,27 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         try {
-            String name = editText1.getText().toString();
+            String email = editText1.getText().toString();
             String comment = editText2.getText().toString();
-
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            intent.setType("text/email");
-
-            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"www.mobinulislam482@gmail.com"});
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback from App");
-            intent.putExtra(Intent.EXTRA_TEXT, "Name :" + name + "\n comment: " + comment);
-            startActivity(Intent.createChooser(intent, "Feedback with"));
+            sendFeedback(email,comment);
+            editText1.setText("");
+            editText2.setText("");
 
         } catch (Exception e) {
         }
 
+
+    }
+    public void sendFeedback(String email,String comment){
+        DatabaseReference root = FirebaseDatabase.getInstance().getReference().child("feedback");
+        //  Map<String ,Object> unique_key = new HashMap<String ,Object>();
+        String temp_key = root.push().getKey();
+        // root.updateChildren(unique_key);
+        Map<String ,Object> userMessage = new HashMap<String ,Object>();
+        DatabaseReference userRef = root.child(temp_key);
+        userMessage.put("Email",email);
+        userMessage.put("Comment",comment);
+        userRef.updateChildren(userMessage);
 
     }
 }
