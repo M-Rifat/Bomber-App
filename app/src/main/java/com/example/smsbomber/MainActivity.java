@@ -169,7 +169,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
-
                             }
                             attackButton.setBackgroundColor(Color.parseColor("#2294A3"));
                             attackButton.setText("Succeed");
@@ -476,8 +475,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(nVV.equals(version)){
                 }
                 else{
-                    Toast.makeText(MainActivity.this,"update update",Toast.LENGTH_LONG).show();
-                    //isUpdateButton.setEnabled(true);
+                   // Toast.makeText(MainActivity.this,"update update",Toast.LENGTH_LONG).show();
+                    isUpdateButton.setEnabled(true);
                     isUpdateButton.setVisibility(View.VISIBLE);
                     nVersion = nVV;
                 }
