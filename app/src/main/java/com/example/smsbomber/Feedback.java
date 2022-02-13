@@ -6,6 +6,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
 
     private Button button;
     private EditText editText1, editText2;
+    private RatingBar ratingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,13 @@ public class Feedback extends AppCompatActivity implements View.OnClickListener 
         editText2 = findViewById(R.id.et2);
 
         button.setOnClickListener(this);
+        ratingBar=findViewById(R.id.rtbar);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(Feedback.this,"value : "+rating,Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
