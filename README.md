@@ -3,4 +3,4 @@ Thanks for using Bomber.
 Bomb💥 your friend and enjoy!
 
 
-Uninstall previous one and Download and Install the Latest APP.
+>>>>> Uninstall previous one and Download and Install the Latest APP.
