@@ -7,8 +7,8 @@ Bomb💥 your friend and enjoy!
 
 
 
+img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg" width="425"/> <img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg" width="425"/>
 
-
-![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg)|![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg)
+![Screenshot]()|![Screenshot]()
 
 
