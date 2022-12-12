@@ -9,6 +9,6 @@ Bomb💥 your friend and enjoy!
 
 
 
-![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg)     ![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg)
+![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg)    | ![Screenshot](https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg)
 
 
