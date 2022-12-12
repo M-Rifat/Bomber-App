@@ -5,8 +5,8 @@ Bomb💥 your friend and enjoy!
 
 >>>>> Uninstall previous one and Download and Install the Latest APP.
 
- <img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg" width="570" height="480"/>
- <img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg" width="570" height="480"/>
+ <img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_1.jpg" width="270" height="100%"/>
+ <img src="https://github.com/M-Rifat/Bomber/blob/main/Screenshot_2.jpg" width="270" height="480"/>
 
 
 
